@@ -1,0 +1,20 @@
+{
+  "name": "gist-at",
+  "version": "1.0.0",
+  "description": "gist automation test",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "test": "cypress run",
+    "test:chrome": "npm test -- --browser chrome"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.1.1",
+    "cypress-cucumber-preprocessor": "^1.6.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
