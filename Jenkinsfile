@@ -20,13 +20,14 @@ pipeline {
       steps {
         container('nodejs') {
           sh "npm install"
+          sh "cp cypress.env.json.sample cypress.env.json"
           sh "CI=true DISPLAY=:99 npm test"
-          sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
-          sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
-          dir('./charts/preview') {
-            sh "make preview"
-            sh "jx preview --app $APP_NAME --dir ../.."
-          }
+          // sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
+          // sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
+          // dir('./charts/preview') {
+          //   sh "make preview"
+          //   sh "jx preview --app $APP_NAME --dir ../.."
+          // }
         }
       }
     }
