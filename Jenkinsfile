@@ -20,6 +20,7 @@ pipeline {
       steps {
         container('nodejs') {
           sh "npm install"
+          sh "ls"
           sh "cp cypress.env.json.sample cypress.env.json"
           sh "CI=true DISPLAY=:99 npm test"
           // sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
